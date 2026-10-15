@@ -1,0 +1,66 @@
+<!-- Here we are doing template inheritance means we will not repeat again and again the same thing of writing the same code in all the html pages which is require in every page like nav etc so we have made a basic.html in which we have written the code and we will use it in evry page by the use of
+template ineritence -->
+
+
+{% extends 'shop/basic.html' %}
+
+{% block title %} {{product.product_name}} - Ecom {% endblock %}
+
+{% block body %} 
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                <img src="/media/{{product.image}}" alt="">
+            </div>
+            <div class="row">
+                <button class="btn btn-primary mx-3 w-25">Buy Now</button>
+                <button class="btn btn-primary w-25">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <h5>{{product.product_name}}</h5>
+            <p><b>RS.{{product.price}}</b></p>
+            <p>{{product.desc}}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+  console.log('working');
+
+  if(localStorage.getItem('cart') == null){
+    var cart = {};
+  }
+  else
+  {
+    cart = JSON.parse(localStorage.getItem('cart'));
+    document.getElementById('cart').innerHTML= Object.keys(cart).length;
+  }
+
+  // jquerry 
+ $('.cart').click(function(){
+  var idstr = this.id.toString();
+
+  if(cart[idstr] != undefined){
+    cart[idstr] = cart[idstr] + 1;
+  }
+  else
+  {
+    cart[idstr] = 1;
+  }
+
+  // after reloading the cart is getting empty for that
+  localStorage.setItem('cart' , JSON.stringify(cart));
+  document.getElementById('cart').innerHTML = Object.keys(cart).length;
+ });
+
+ $('#popcart').popover();
+
+ document.getElementById("popcart").setAttribute('data-content','<h5>Cart for your items in my shopping cart</h5>')
+
+</script>
+{% endblock %}

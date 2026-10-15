@@ -1,0 +1,9 @@
+<!-- Here we are doing template inheritance means we will not repeat again and again the same thing of writing the same code in all the html pages which is require in every page like nav etc so we have made a basic.html in which we have written the code and we will use it in evry page by the use of
+template ineritence -->
+
+
+{% extends 'shop/basic.html' %}
+
+{% block title %} This is search {% endblock %}
+
+{% block body %} This is our search  {% endblock %}

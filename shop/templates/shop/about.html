@@ -1,0 +1,21 @@
+<!-- Here we are doing template inheritance means we will not repeat again and again the same thing of writing the same code in all the html pages which is require in every page like nav etc so we have made a basic.html in which we have written the code and we will use it in evry page by the use of
+template ineritence -->
+
+
+{% extends 'shop/basic.html' %}
+
+{% block title %} This is about {% endblock %}
+
+{% block body %} 
+<div class="container my-3 align-self-center">
+    <h1>ECOM</h1>
+    <div class="row">
+        <div class="col-md-4">
+            ECOM
+        </div>
+        <div class="col-md-8">
+            Ecom was founded in September 2026 in Begusarai by Gopal Pathak, alumni of the Oriental Institute Of Science and Technology.The company was started from a two-bedroom apartment in Begusarai, Bihar.
+        </div>
+    </div>
+</div>
+{% endblock %}
