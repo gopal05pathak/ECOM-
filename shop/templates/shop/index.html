@@ -246,7 +246,7 @@ body{
                     <div class="col-xs-3 col-sm-3 col-md-3">
                         <div class="card align-items-center">
 
-                            <img src="/media/{{ i.image }}"
+                            <img src="/static/media/{{ i.image }}"
                                  class="card-img-top"
                                  alt="{{ i.product_name }}">
 
@@ -355,30 +355,6 @@ body{
     document.getElementById('cart').innerHTML = Object.keys(cart).length;
   });
 
-
-  // add popover to cart
-//   $('#popcart').popover();
-  // funtion to write popover 
-//   updatePopover(cart);
-//   function updatePopover(cart) {
-//     console.log('we are inside updatepopover');
-//     var popStr = "";
-//     popStr = popStr + "<h5> cart for your item in my shopping cart </h5><div class='mx-2'>";
-//     var i = 1;
-//     for (var item in cart) {
-//       popStr = popStr + "<b>" + i + "</b>.";
-//       var productName = document.getElementById('name' + item);
-//       var itemName = String(productName ? productName.innerHTML : (cart[item][1] || item));
-//       popStr = popStr + itemName.slice(0, 19) + "...Qty: " + cart[item][0] + '<br>';
-//       i = i + 1;
-//     }
-//     popStr = popStr + ''
-//     popStr = popStr + "</div> <a href='/shop/checkout'><button class='btn btn-primary' id= 'checkout'>Checkout</button></a> <button class='btn btn-primary' onclick='clearCart()' id= 'clearCart'>Clear Cart</button>"
-//     console.log(popStr);
-
-//     document.getElementById("popcart").setAttribute('data-content', popStr)
-//     $('#popcart').popover('show');
-//   }
 
 function updatePopover(cart) {
     var popStr = "<h5>Items in your shopping cart</h5><div class='mx-2'>";
