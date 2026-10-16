@@ -26,4 +26,10 @@ urlpatterns = [
     path('', views.index , name="ecshome"),
     path('shop/', include('shop.urls')),
     # here include means that we have included the shop.urls or blog.urls
-] + static(settings.MEDIA_URL , document_root=settings.MEDIA_ROOT)
+]
+if settings.DEBUG:
+    urlpatterns += static(
+    settings.MEDIA_URL,
+    document_root=settings.MEDIA_ROOT
+)
+# + static(settings.MEDIA_URL , document_root=settings.MEDIA_ROOT)
